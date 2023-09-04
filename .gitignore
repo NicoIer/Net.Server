@@ -1,0 +1,17 @@
+# C# .Net Console Application
+*.idea/
+*.DS_Store
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+
+*.csproj
+    
+*obj/
+*bin/
+
+
+# Unity meta
+*.meta
