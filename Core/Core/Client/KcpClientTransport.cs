@@ -1,11 +1,11 @@
 using System;
 using kcp2k;
 
-namespace Moba
+namespace Nico
 {
     public class KcpClientTransport : ClientTransport
     {
-        public ushort port { get; private set; }
+        public ushort port;
         private readonly KcpConfig _config;
         private KcpClient _client;
 
@@ -14,10 +14,10 @@ namespace Moba
             _config = config;
             this.port = port;
             _client = new KcpClient(
-                () => OnConnected?.Invoke(),
-                (data, channel) => OnDataReceived?.Invoke(data, KcpUtil.FromKcpChannel(channel)),
-                () => OnDisconnected?.Invoke(),
-                (error, msg) => OnError?.Invoke(KcpUtil.ToTransportError(error), msg),
+                () => OnConnected.Invoke(),
+                (data, channel) => OnDataReceived.Invoke(data, KcpUtil.FromKcpChannel(channel)),
+                () => OnDisconnected.Invoke(),
+                (error, msg) => OnError.Invoke(KcpUtil.ToTransportError(error), msg),
                 config
             );
         }
@@ -25,6 +25,7 @@ namespace Moba
         public override bool connected => _client.connected;
 
         public override void Connect(string address) => _client.Connect(address, port);
+
 
         public override void Send(ArraySegment<byte> segment, int channelId = Channels.Reliable)
         {
@@ -45,18 +46,19 @@ namespace Moba
             }
         }
 
-        public void TickOutgoing()
+        public override void TickOutgoing()
         {
             _client.TickOutgoing();
         }
 
-        public void TickIncoming()
+        public override void TickIncoming()
         {
             _client.TickIncoming();
         }
 
         public override void Shutdown()
         {
+            _client.Disconnect();
         }
     }
 }

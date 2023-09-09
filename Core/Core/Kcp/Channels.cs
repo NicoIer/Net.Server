@@ -1,4 +1,4 @@
-namespace Moba
+namespace Nico
 {
     public static class Channels
     {

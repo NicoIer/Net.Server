@@ -1,6 +1,6 @@
 using System;
 
-namespace Moba
+namespace Nico
 {
     [Serializable]
     public abstract class ServerTransport : INetTransport
@@ -31,7 +31,10 @@ namespace Moba
 
         // 发送消息到客户端
         public abstract void Send(int connectionId, ArraySegment<byte> segment, int channelId = Channels.Reliable);
-
+    
+        public abstract void SendToAll(ArraySegment<byte> segment, int channelId = Channels.Reliable);
+        
+        
         //  断开连接
         public abstract void Disconnect(int connectionId);
 
@@ -45,5 +48,9 @@ namespace Moba
         public abstract int GetMaxPacketSize(int channelId = Channels.Reliable);
         
         public abstract void Shutdown();
+        
+        public abstract void TickOutgoing();
+        
+        public abstract void TickIncoming();
     }
 }

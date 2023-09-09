@@ -1,12 +1,12 @@
 using System;
 using kcp2k;
 
-namespace Moba
+namespace Nico
 {
     public static class KcpUtil
     {
         public static readonly KcpConfig defaultConfig = new KcpConfig(
-            false, //同时监听 ipv4 和 ipv6
+            true, //同时监听 ipv4 和 ipv6
             1024 * 1024 * 7,
             1024 * 1024 * 7,
             Kcp.MTU_DEF,
@@ -19,6 +19,25 @@ namespace Moba
             10000,
             Kcp.DEADLINK * 2
         );
+
+        public static KcpConfig GetDefaultConfigCopy()
+        {
+            return new KcpConfig(
+                true, //同时监听 ipv4 和 ipv6
+                1024 * 1024 * 7,
+                1024 * 1024 * 7,
+                Kcp.MTU_DEF,
+                true,
+                10,
+                2,
+                false,
+                4096,
+                4096,
+                10000,
+                Kcp.DEADLINK * 2
+            );
+        }
+
         public static int FromKcpChannel(KcpChannel channel) =>
             channel == KcpChannel.Reliable ? Channels.Reliable : Channels.Unreliable;
 
@@ -27,7 +46,7 @@ namespace Moba
 
         public static TransportError ToTransportError(ErrorCode error)
         {
-            switch(error)
+            switch (error)
             {
                 case ErrorCode.DnsResolve: return TransportError.DnsResolve;
                 case ErrorCode.Timeout: return TransportError.Timeout;
@@ -39,8 +58,5 @@ namespace Moba
                 default: throw new InvalidCastException($"KCP: missing error translation for {error}");
             }
         }
-        
-        
-        
     }
 }

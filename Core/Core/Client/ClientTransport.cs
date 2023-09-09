@@ -1,6 +1,6 @@
 using System;
 
-namespace Moba
+namespace Nico
 {
     public abstract class ClientTransport : INetTransport
     {
@@ -34,5 +34,9 @@ namespace Moba
         public abstract int GetMaxPacketSize(int channelId = Channels.Reliable);
 
         public abstract void Shutdown();
+        
+        public abstract void TickOutgoing();
+        
+        public abstract void TickIncoming();
     }
 }

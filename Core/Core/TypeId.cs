@@ -1,4 +1,4 @@
-namespace Moba
+namespace Nico
 {
     /// <summary>
     /// 比dict更快
@@ -6,6 +6,6 @@ namespace Moba
     /// <typeparam name="T"></typeparam>
     internal static class TypeId<T>
     {
-        public static ushort id = typeof(T).FullName.GetStableHash();
+        public static int id = typeof(T).FullName.GetStableHash();
     }
 }

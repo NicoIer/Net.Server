@@ -1,4 +1,4 @@
-namespace Moba
+namespace Nico
 {
     public interface INetTransport
     {

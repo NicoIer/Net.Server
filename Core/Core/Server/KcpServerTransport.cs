@@ -2,11 +2,12 @@ using System;
 using System.Net;
 using kcp2k;
 
-namespace Moba
+namespace Nico
 {
     /// <summary>
     /// Kcp的服务器端传输
     /// </summary>
+    [Serializable]
     public class KcpServerTransport : ServerTransport
     {
         public ushort port { get; private set; }
@@ -15,6 +16,7 @@ namespace Moba
 
 
         private KcpServer _server;
+        public int ConnectionCount => _server.connections.Count;
 
         public KcpServerTransport(KcpConfig config, ushort port)
         {
@@ -51,6 +53,15 @@ namespace Moba
             OnDataSent?.Invoke(connectionId, segment, channelId);
         }
 
+        public override void SendToAll(ArraySegment<byte> segment, int channelId = Channels.Reliable)
+        {
+            foreach (var conn in _server.connections)
+            {
+                _server.Send(conn.Key, segment, KcpUtil.ToKcpChannel(channelId));
+                OnDataSent?.Invoke(conn.Key, segment, channelId);
+            }
+        }
+
         public override void Disconnect(int connectionId) => _server.Disconnect(connectionId);
 
         public override string GetClientAddress(int connectionId)
@@ -82,18 +93,19 @@ namespace Moba
             }
         }
 
-        public void TickOutgoing()
+        public override void TickOutgoing()
         {
             _server.TickOutgoing();
         }
 
-        public void TickIncoming()
+        public override void TickIncoming()
         {
             _server.TickIncoming();
         }
 
         public override void Shutdown()
         {
+            _server.Stop();
         }
     }
 }
