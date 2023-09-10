@@ -1,4 +1,5 @@
-﻿using kcp2k;
+﻿using Google.Protobuf;
+using kcp2k;
 using Nico;
 
 ProtoReader.Reader<PacketHeader>.reader = PacketHeader.Parser.ParseFrom;
