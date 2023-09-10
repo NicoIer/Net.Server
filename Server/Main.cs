@@ -12,23 +12,16 @@ Console.WriteLine("Nico.Server");
 KcpConfig config = KcpUtil.defaultConfig;
 config.DualMode = false;
 
-ServerTransport serverTransport = new KcpServerTransport(config, 24419);
+NetServer server = new NetServer(new KcpServerTransport(config, 24419));
+server.Start();
 
-serverTransport.Start();
 
-ServerCenter center = new ServerCenter();
-
-serverTransport.onDataReceived += (connectId, bytes, channel) =>
-{
-    center.OnData(connectId, PacketHeader.Parser.ParseFrom(bytes), channel);
-};
-
-center.Register<PingMessage>((connectId, msg, channel) =>
+server.Register<PingMessage>((connectId, msg, channel) =>
 {
     Console.WriteLine($"ping message from {connectId} channel:{channel} clientTime:{msg.ClientTime} ");
 });
 
-serverTransport.onError += (connectId, error, msg) => { Console.WriteLine(msg); };
+server.onError += (connectId, error, msg) => { Console.WriteLine(msg); };
 
 
 int frame = 0;
@@ -46,12 +39,13 @@ while (true)
     }
 
     double waitTime = tickInterval - (frameEnd - frameStart) / 10000f;
+    waitTime = Math.Abs(waitTime);
     await Task.Delay(TimeSpan.FromMilliseconds(waitTime));
     frameStart = DateTime.Now.Ticks;
-    serverTransport.TickIncoming();
-    serverTransport.TickOutgoing();
+    server.OnEarlyUpdate();
+    server.OnLateUpdate();
     frameEnd = DateTime.Now.Ticks;
     ++frame;
 }
 
-serverTransport.Shutdown();
+server.Stop();
