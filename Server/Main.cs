@@ -1,15 +1,11 @@
 ﻿using Google.Protobuf;
-using kcp2k;
 using Nico;
 
-ProtoHandler.Reader<PacketHeader>.reader = PacketHeader.Parser.ParseFrom;
-ProtoHandler.Reader<ErrorMessage>.reader = ErrorMessage.Parser.ParseFrom;
-ProtoHandler.Reader<PingMessage>.reader = PingMessage.Parser.ParseFrom;
-ProtoHandler.Reader<PongMessage>.reader = PongMessage.Parser.ParseFrom;
+ProtoHandler.InitBuildInReader();
 
 
 Console.WriteLine("Nico.Server");
-KcpConfig config = KcpUtil.defaultConfig;
+kcp2k.KcpConfig config = KcpUtil.defaultConfig;
 config.DualMode = false;
 
 NetServer server = new NetServer(new KcpServerTransport(config, 24419));
@@ -23,6 +19,7 @@ server.Register<PingMessage>((connectId, msg, channel) =>
 
 server.onError += (connectId, error, msg) => { Console.WriteLine(msg); };
 
+kcp2k.Log.Info = Console.WriteLine;
 
 int frame = 0;
 double tickInterval = 1000 / 60f;
