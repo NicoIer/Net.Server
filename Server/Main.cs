@@ -1,9 +1,6 @@
 ﻿using Google.Protobuf;
 using Nico;
 
-ProtoHandler.InitBuildInReader();
-
-
 Console.WriteLine("Nico.Server");
 kcp2k.KcpConfig config = KcpUtil.defaultConfig;
 config.DualMode = false;
