@@ -11,7 +11,15 @@ server.Start();
 
 server.Register<PingMessage>((connectId, msg, channel) =>
 {
-    Console.WriteLine($"ping message from {connectId} channel:{channel} clientTime:{msg.ClientTime} ");
+    long delta = DateTime.Now.ToUniversalTime().Ticks - msg.ClientTime;
+    double ms = delta / 10000f;
+    Console.WriteLine(
+        $"ping message from {connectId} channel:{channel} delta:{delta} = {ms:0000} ms");
+    
+    PongMessage pong = ProtoHandler.Get<PongMessage>();
+    pong.ServerTime = DateTime.Now.ToUniversalTime().Ticks;
+    server.Send(connectId, pong);
+    pong.Return();
 });
 
 server.onError += (connectId, error, msg) => { Console.WriteLine(msg); };
@@ -35,10 +43,10 @@ while (true)
     double waitTime = tickInterval - (frameEnd - frameStart) / 10000f;
     waitTime = Math.Abs(waitTime);
     await Task.Delay(TimeSpan.FromMilliseconds(waitTime));
-    frameStart = DateTime.Now.Ticks;
+    frameStart = DateTime.Now.ToUniversalTime().Ticks;
     server.OnEarlyUpdate();
     server.OnLateUpdate();
-    frameEnd = DateTime.Now.Ticks;
+    frameEnd = DateTime.Now.ToUniversalTime().Ticks;
     ++frame;
 }
 
