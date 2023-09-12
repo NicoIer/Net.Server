@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf;
+using Moba.Server;
 using Nico;
 
 Console.WriteLine("Nico.Server");
@@ -8,21 +9,7 @@ config.DualMode = false;
 NetServer server = new NetServer(new KcpServerTransport(config, 24419));
 server.Start();
 
-
-server.Register<PingMessage>((connectId, msg, channel) =>
-{
-    long delta = DateTime.Now.ToUniversalTime().Ticks - msg.ClientTime;
-    double ms = delta / 10000f;
-    Console.WriteLine(
-        $"ping message from {connectId} channel:{channel} delta:{delta} = {ms:0000} ms");
-    
-    PongMessage pong = ProtoHandler.Get<PongMessage>();
-    pong.ServerTime = DateTime.Now.ToUniversalTime().Ticks;
-    server.Send(connectId, pong);
-    pong.Return();
-});
-
-server.onError += (connectId, error, msg) => { Console.WriteLine(msg); };
+ServerHandler handler = new ServerHandler(server);
 
 kcp2k.Log.Info = Console.WriteLine;
 
