@@ -8,8 +8,11 @@ namespace Moba.Server
         public ServerHandler(NetServer server)
         {
             this._server = server;
-            
             _server.Listen<PingMessage>(OnPing);
+        }
+        ~ServerHandler()
+        {
+            _server.UnListen<PingMessage>(OnPing);
         }
         void OnPing(ClientMsg<PingMessage> pack)
         {
