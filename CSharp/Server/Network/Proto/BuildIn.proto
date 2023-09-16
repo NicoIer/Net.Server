@@ -1,0 +1,60 @@
+syntax = "proto3";
+// 消息头 用于包装所有消息
+message PacketHeader{
+  int32  id = 1; // 消息id 标识body对应的消息是什么
+  bytes body = 3; //消息体
+}
+
+// 错误消息
+message ErrorMessage{
+  ProtoErrorCode code = 1;
+  string info = 2;
+}
+
+// 错误码
+enum ProtoErrorCode{
+  SUCCESS = 0;
+  ERROR = 1;
+}
+
+message StringMessage{
+  string msg = 1;
+}
+
+message PingMessage{
+  int64 serverTime = 1;
+  int64 clientTime = 2;
+}
+
+message PongMessage{
+  int64 serverTime = 1;
+  int64 clientTime = 2;
+}
+
+//Rpc请求消息
+message RpcRequestMessage{
+  int64 methodHash = 1;
+  bytes payload = 2;
+}
+
+//Rpc响应消息
+message RpcResponseMessage{
+  int64 methodHash = 1;
+  bytes payload = 2;
+  ProtoErrorCode errorCode = 3;
+}
+
+
+message CreateObjResponse{
+  uint32 id = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+  
+}
+
+message CreateObjRequest{
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
