@@ -23,30 +23,34 @@ public static partial class BuildInReflection {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
           "Cg1CdWlsZEluLnByb3RvIigKDFBhY2tldEhlYWRlchIKCgJpZBgBIAEoBRIM",
-          "CgRib2R5GAMgASgMIjsKDEVycm9yTWVzc2FnZRIdCgRjb2RlGAEgASgOMg8u",
-          "UHJvdG9FcnJvckNvZGUSDAoEaW5mbxgCIAEoCSIcCg1TdHJpbmdNZXNzYWdl",
-          "EgsKA21zZxgBIAEoCSI1CgtQaW5nTWVzc2FnZRISCgpzZXJ2ZXJUaW1lGAEg",
-          "ASgDEhIKCmNsaWVudFRpbWUYAiABKAMiNQoLUG9uZ01lc3NhZ2USEgoKc2Vy",
-          "dmVyVGltZRgBIAEoAxISCgpjbGllbnRUaW1lGAIgASgDIjgKEVJwY1JlcXVl",
-          "c3RNZXNzYWdlEhIKCm1ldGhvZEhhc2gYASABKAMSDwoHcGF5bG9hZBgCIAEo",
-          "DCJdChJScGNSZXNwb25zZU1lc3NhZ2USEgoKbWV0aG9kSGFzaBgBIAEoAxIP",
-          "CgdwYXlsb2FkGAIgASgMEiIKCWVycm9yQ29kZRgDIAEoDjIPLlByb3RvRXJy",
-          "b3JDb2RlIkAKEUNyZWF0ZU9ialJlc3BvbnNlEgoKAmlkGAEgASgNEgkKAXgY",
-          "AiABKAISCQoBeRgDIAEoAhIJCgF6GAQgASgCIjMKEENyZWF0ZU9ialJlcXVl",
-          "c3QSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIqKAoOUHJvdG9F",
-          "cnJvckNvZGUSCwoHU1VDQ0VTUxAAEgkKBUVSUk9SEAFiBnByb3RvMw=="));
+          "CgRib2R5GAMgASgMIhwKDVN0cmluZ01lc3NhZ2USCwoDbXNnGAEgASgJIiEK",
+          "C1BpbmdNZXNzYWdlEhIKCnNlbmRlclRpbWUYASABKAMiNgoLUG9uZ01lc3Nh",
+          "Z2USEwoLcmVjZWl2ZVRpbWUYASABKAMSEgoKc2VuZGVyVGltZRgCIAEoAyJT",
+          "CglTZXJ2ZXJScGMSDQoFb2JqSWQYASABKAUSEwoLYmVoYXZpb3JJZHgYAiAB",
+          "KAUSEAoIbWV0aG9kSWQYAyABKAUSEAoIcGF5bG9hZHMYBCABKAwiUwoJQ2xp",
+          "ZW50UnBjEg0KBW9iaklkGAEgASgFEhMKC2JlaGF2aW9ySWR4GAIgASgFEhAK",
+          "CG1ldGhvZElkGAMgASgFEhAKCHBheWxvYWRzGAQgASgMImUKCVRhcmdldFJw",
+          "YxIQCghjbGllbnRJZBgBIAEoAxINCgVvYmpJZBgCIAEoBRITCgtiZWhhdmlv",
+          "cklkeBgDIAEoBRIQCghtZXRob2RJZBgEIAEoBRIQCghwYXlsb2FkcxgFIAEo",
+          "DCJDChFDcmVhdGVPYmpSZXNwb25zZRINCgVvYmpJZBgBIAEoDRIJCgF4GAIg",
+          "ASgCEgkKAXkYAyABKAISCQoBehgEIAEoAiIzChBDcmVhdGVPYmpSZXF1ZXN0",
+          "EgkKAXgYASABKAISCQoBeRgCIAEoAhIJCgF6GAMgASgCIjsKDEVycm9yTWVz",
+          "c2FnZRIdCgRjb2RlGAEgASgOMg8uUHJvdG9FcnJvckNvZGUSDAoEaW5mbxgC",
+          "IAEoCSooCg5Qcm90b0Vycm9yQ29kZRILCgdTVUNDRVNTEAASCQoFRVJST1IQ",
+          "AWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ProtoErrorCode), }, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::PacketHeader), global::PacketHeader.Parser, new[]{ "Id", "Body" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ErrorMessage), global::ErrorMessage.Parser, new[]{ "Code", "Info" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::StringMessage), global::StringMessage.Parser, new[]{ "Msg" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PingMessage), global::PingMessage.Parser, new[]{ "ServerTime", "ClientTime" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PongMessage), global::PongMessage.Parser, new[]{ "ServerTime", "ClientTime" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::RpcRequestMessage), global::RpcRequestMessage.Parser, new[]{ "MethodHash", "Payload" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::RpcResponseMessage), global::RpcResponseMessage.Parser, new[]{ "MethodHash", "Payload", "ErrorCode" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjResponse), global::CreateObjResponse.Parser, new[]{ "Id", "X", "Y", "Z" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjRequest), global::CreateObjRequest.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::PingMessage), global::PingMessage.Parser, new[]{ "SenderTime" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::PongMessage), global::PongMessage.Parser, new[]{ "ReceiveTime", "SenderTime" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ServerRpc), global::ServerRpc.Parser, new[]{ "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ClientRpc), global::ClientRpc.Parser, new[]{ "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::TargetRpc), global::TargetRpc.Parser, new[]{ "ClientId", "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjResponse), global::CreateObjResponse.Parser, new[]{ "ObjId", "X", "Y", "Z" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjRequest), global::CreateObjRequest.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ErrorMessage), global::ErrorMessage.Parser, new[]{ "Code", "Info" }, null, null, null, null)
         }));
   }
   #endregion
@@ -281,217 +285,6 @@ public sealed partial class PacketHeader : pb::IMessage<PacketHeader>
 
 }
 
-/// <summary>
-/// 错误消息
-/// </summary>
-public sealed partial class ErrorMessage : pb::IMessage<ErrorMessage>
-#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    , pb::IBufferMessage
-#endif
-{
-  private static readonly pb::MessageParser<ErrorMessage> _parser = new pb::MessageParser<ErrorMessage>(() => new ErrorMessage());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<ErrorMessage> Parser { get { return _parser; } }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BuildInReflection.Descriptor.MessageTypes[1]; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorMessage() {
-    OnConstruction();
-  }
-
-  partial void OnConstruction();
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorMessage(ErrorMessage other) : this() {
-    code_ = other.code_;
-    info_ = other.info_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorMessage Clone() {
-    return new ErrorMessage(this);
-  }
-
-  /// <summary>Field number for the "code" field.</summary>
-  public const int CodeFieldNumber = 1;
-  private global::ProtoErrorCode code_ = global::ProtoErrorCode.Success;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ProtoErrorCode Code {
-    get { return code_; }
-    set {
-      code_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "info" field.</summary>
-  public const int InfoFieldNumber = 2;
-  private string info_ = "";
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Info {
-    get { return info_; }
-    set {
-      info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as ErrorMessage);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(ErrorMessage other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Code != other.Code) return false;
-    if (Info != other.Info) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Code != global::ProtoErrorCode.Success) hash ^= Code.GetHashCode();
-    if (Info.Length != 0) hash ^= Info.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    output.WriteRawMessage(this);
-  #else
-    if (Code != global::ProtoErrorCode.Success) {
-      output.WriteRawTag(8);
-      output.WriteEnum((int) Code);
-    }
-    if (Info.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(Info);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  #endif
-  }
-
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Code != global::ProtoErrorCode.Success) {
-      output.WriteRawTag(8);
-      output.WriteEnum((int) Code);
-    }
-    if (Info.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(Info);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(ref output);
-    }
-  }
-  #endif
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Code != global::ProtoErrorCode.Success) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Code);
-    }
-    if (Info.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(ErrorMessage other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Code != global::ProtoErrorCode.Success) {
-      Code = other.Code;
-    }
-    if (other.Info.Length != 0) {
-      Info = other.Info;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    input.ReadRawMessage(this);
-  #else
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 8: {
-          Code = (global::ProtoErrorCode) input.ReadEnum();
-          break;
-        }
-        case 18: {
-          Info = input.ReadString();
-          break;
-        }
-      }
-    }
-  #endif
-  }
-
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-          break;
-        case 8: {
-          Code = (global::ProtoErrorCode) input.ReadEnum();
-          break;
-        }
-        case 18: {
-          Info = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
-  #endif
-
-}
-
 public sealed partial class StringMessage : pb::IMessage<StringMessage>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -504,7 +297,7 @@ public sealed partial class StringMessage : pb::IMessage<StringMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::BuildInReflection.Descriptor.MessageTypes[2]; }
+    get { return global::BuildInReflection.Descriptor.MessageTypes[1]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -676,7 +469,7 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::BuildInReflection.Descriptor.MessageTypes[3]; }
+    get { return global::BuildInReflection.Descriptor.MessageTypes[2]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -693,8 +486,7 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public PingMessage(PingMessage other) : this() {
-    serverTime_ = other.serverTime_;
-    clientTime_ = other.clientTime_;
+    senderTime_ = other.senderTime_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -703,25 +495,17 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
     return new PingMessage(this);
   }
 
-  /// <summary>Field number for the "serverTime" field.</summary>
-  public const int ServerTimeFieldNumber = 1;
-  private long serverTime_;
+  /// <summary>Field number for the "senderTime" field.</summary>
+  public const int SenderTimeFieldNumber = 1;
+  private long senderTime_;
+  /// <summary>
+  ///发送时间
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long ServerTime {
-    get { return serverTime_; }
+  public long SenderTime {
+    get { return senderTime_; }
     set {
-      serverTime_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "clientTime" field.</summary>
-  public const int ClientTimeFieldNumber = 2;
-  private long clientTime_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long ClientTime {
-    get { return clientTime_; }
-    set {
-      clientTime_ = value;
+      senderTime_ = value;
     }
   }
 
@@ -738,16 +522,14 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (ServerTime != other.ServerTime) return false;
-    if (ClientTime != other.ClientTime) return false;
+    if (SenderTime != other.SenderTime) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (ServerTime != 0L) hash ^= ServerTime.GetHashCode();
-    if (ClientTime != 0L) hash ^= ClientTime.GetHashCode();
+    if (SenderTime != 0L) hash ^= SenderTime.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -764,13 +546,9 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (ServerTime != 0L) {
+    if (SenderTime != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(ServerTime);
-    }
-    if (ClientTime != 0L) {
-      output.WriteRawTag(16);
-      output.WriteInt64(ClientTime);
+      output.WriteInt64(SenderTime);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -781,13 +559,9 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (ServerTime != 0L) {
+    if (SenderTime != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(ServerTime);
-    }
-    if (ClientTime != 0L) {
-      output.WriteRawTag(16);
-      output.WriteInt64(ClientTime);
+      output.WriteInt64(SenderTime);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -798,11 +572,8 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (ServerTime != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ServerTime);
-    }
-    if (ClientTime != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ClientTime);
+    if (SenderTime != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(SenderTime);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -815,11 +586,8 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
     if (other == null) {
       return;
     }
-    if (other.ServerTime != 0L) {
-      ServerTime = other.ServerTime;
-    }
-    if (other.ClientTime != 0L) {
-      ClientTime = other.ClientTime;
+    if (other.SenderTime != 0L) {
+      SenderTime = other.SenderTime;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -836,11 +604,7 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          ServerTime = input.ReadInt64();
-          break;
-        }
-        case 16: {
-          ClientTime = input.ReadInt64();
+          SenderTime = input.ReadInt64();
           break;
         }
       }
@@ -858,11 +622,7 @@ public sealed partial class PingMessage : pb::IMessage<PingMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          ServerTime = input.ReadInt64();
-          break;
-        }
-        case 16: {
-          ClientTime = input.ReadInt64();
+          SenderTime = input.ReadInt64();
           break;
         }
       }
@@ -884,7 +644,7 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::BuildInReflection.Descriptor.MessageTypes[4]; }
+    get { return global::BuildInReflection.Descriptor.MessageTypes[3]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -901,8 +661,8 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public PongMessage(PongMessage other) : this() {
-    serverTime_ = other.serverTime_;
-    clientTime_ = other.clientTime_;
+    receiveTime_ = other.receiveTime_;
+    senderTime_ = other.senderTime_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -911,25 +671,31 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
     return new PongMessage(this);
   }
 
-  /// <summary>Field number for the "serverTime" field.</summary>
-  public const int ServerTimeFieldNumber = 1;
-  private long serverTime_;
+  /// <summary>Field number for the "receiveTime" field.</summary>
+  public const int ReceiveTimeFieldNumber = 1;
+  private long receiveTime_;
+  /// <summary>
+  ///接收时间
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long ServerTime {
-    get { return serverTime_; }
+  public long ReceiveTime {
+    get { return receiveTime_; }
     set {
-      serverTime_ = value;
+      receiveTime_ = value;
     }
   }
 
-  /// <summary>Field number for the "clientTime" field.</summary>
-  public const int ClientTimeFieldNumber = 2;
-  private long clientTime_;
+  /// <summary>Field number for the "senderTime" field.</summary>
+  public const int SenderTimeFieldNumber = 2;
+  private long senderTime_;
+  /// <summary>
+  ///ping的发送时间
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long ClientTime {
-    get { return clientTime_; }
+  public long SenderTime {
+    get { return senderTime_; }
     set {
-      clientTime_ = value;
+      senderTime_ = value;
     }
   }
 
@@ -946,16 +712,16 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (ServerTime != other.ServerTime) return false;
-    if (ClientTime != other.ClientTime) return false;
+    if (ReceiveTime != other.ReceiveTime) return false;
+    if (SenderTime != other.SenderTime) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (ServerTime != 0L) hash ^= ServerTime.GetHashCode();
-    if (ClientTime != 0L) hash ^= ClientTime.GetHashCode();
+    if (ReceiveTime != 0L) hash ^= ReceiveTime.GetHashCode();
+    if (SenderTime != 0L) hash ^= SenderTime.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -972,13 +738,13 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (ServerTime != 0L) {
+    if (ReceiveTime != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(ServerTime);
+      output.WriteInt64(ReceiveTime);
     }
-    if (ClientTime != 0L) {
+    if (SenderTime != 0L) {
       output.WriteRawTag(16);
-      output.WriteInt64(ClientTime);
+      output.WriteInt64(SenderTime);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -989,13 +755,13 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (ServerTime != 0L) {
+    if (ReceiveTime != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(ServerTime);
+      output.WriteInt64(ReceiveTime);
     }
-    if (ClientTime != 0L) {
+    if (SenderTime != 0L) {
       output.WriteRawTag(16);
-      output.WriteInt64(ClientTime);
+      output.WriteInt64(SenderTime);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -1006,11 +772,11 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (ServerTime != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ServerTime);
+    if (ReceiveTime != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ReceiveTime);
     }
-    if (ClientTime != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ClientTime);
+    if (SenderTime != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(SenderTime);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -1023,11 +789,11 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
     if (other == null) {
       return;
     }
-    if (other.ServerTime != 0L) {
-      ServerTime = other.ServerTime;
+    if (other.ReceiveTime != 0L) {
+      ReceiveTime = other.ReceiveTime;
     }
-    if (other.ClientTime != 0L) {
-      ClientTime = other.ClientTime;
+    if (other.SenderTime != 0L) {
+      SenderTime = other.SenderTime;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1044,11 +810,11 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          ServerTime = input.ReadInt64();
+          ReceiveTime = input.ReadInt64();
           break;
         }
         case 16: {
-          ClientTime = input.ReadInt64();
+          SenderTime = input.ReadInt64();
           break;
         }
       }
@@ -1066,11 +832,11 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          ServerTime = input.ReadInt64();
+          ReceiveTime = input.ReadInt64();
           break;
         }
         case 16: {
-          ClientTime = input.ReadInt64();
+          SenderTime = input.ReadInt64();
           break;
         }
       }
@@ -1081,17 +847,312 @@ public sealed partial class PongMessage : pb::IMessage<PongMessage>
 }
 
 /// <summary>
-///Rpc请求消息
+///客户端调用 服务器执行
 /// </summary>
-public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
+public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
 #endif
 {
-  private static readonly pb::MessageParser<RpcRequestMessage> _parser = new pb::MessageParser<RpcRequestMessage>(() => new RpcRequestMessage());
+  private static readonly pb::MessageParser<ServerRpc> _parser = new pb::MessageParser<ServerRpc>(() => new ServerRpc());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<RpcRequestMessage> Parser { get { return _parser; } }
+  public static pb::MessageParser<ServerRpc> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::BuildInReflection.Descriptor.MessageTypes[4]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ServerRpc() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ServerRpc(ServerRpc other) : this() {
+    objId_ = other.objId_;
+    behaviorIdx_ = other.behaviorIdx_;
+    methodId_ = other.methodId_;
+    payloads_ = other.payloads_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ServerRpc Clone() {
+    return new ServerRpc(this);
+  }
+
+  /// <summary>Field number for the "objId" field.</summary>
+  public const int ObjIdFieldNumber = 1;
+  private int objId_;
+  /// <summary>
+  ///目标对象Id
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int ObjId {
+    get { return objId_; }
+    set {
+      objId_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "behaviorIdx" field.</summary>
+  public const int BehaviorIdxFieldNumber = 2;
+  private int behaviorIdx_;
+  /// <summary>
+  ///目标行为Id
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int BehaviorIdx {
+    get { return behaviorIdx_; }
+    set {
+      behaviorIdx_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "methodId" field.</summary>
+  public const int MethodIdFieldNumber = 3;
+  private int methodId_;
+  /// <summary>
+  ///目标方法Id
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int MethodId {
+    get { return methodId_; }
+    set {
+      methodId_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "payloads" field.</summary>
+  public const int PayloadsFieldNumber = 4;
+  private pb::ByteString payloads_ = pb::ByteString.Empty;
+  /// <summary>
+  ///参数信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pb::ByteString Payloads {
+    get { return payloads_; }
+    set {
+      payloads_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ServerRpc);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ServerRpc other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (ObjId != other.ObjId) return false;
+    if (BehaviorIdx != other.BehaviorIdx) return false;
+    if (MethodId != other.MethodId) return false;
+    if (Payloads != other.Payloads) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (ObjId != 0) hash ^= ObjId.GetHashCode();
+    if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
+    if (MethodId != 0) hash ^= MethodId.GetHashCode();
+    if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (ObjId != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(ObjId);
+    }
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteBytes(Payloads);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (ObjId != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(ObjId);
+    }
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteBytes(Payloads);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (ObjId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
+    }
+    if (BehaviorIdx != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payloads);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ServerRpc other) {
+    if (other == null) {
+      return;
+    }
+    if (other.ObjId != 0) {
+      ObjId = other.ObjId;
+    }
+    if (other.BehaviorIdx != 0) {
+      BehaviorIdx = other.BehaviorIdx;
+    }
+    if (other.MethodId != 0) {
+      MethodId = other.MethodId;
+    }
+    if (other.Payloads.Length != 0) {
+      Payloads = other.Payloads;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          ObjId = input.ReadInt32();
+          break;
+        }
+        case 16: {
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 24: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 34: {
+          Payloads = input.ReadBytes();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 8: {
+          ObjId = input.ReadInt32();
+          break;
+        }
+        case 16: {
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 24: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 34: {
+          Payloads = input.ReadBytes();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+///服务器调用 在所有客户端执行
+/// </summary>
+public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ClientRpc> _parser = new pb::MessageParser<ClientRpc>(() => new ClientRpc());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ClientRpc> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
@@ -1104,69 +1165,109 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcRequestMessage() {
+  public ClientRpc() {
     OnConstruction();
   }
 
   partial void OnConstruction();
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcRequestMessage(RpcRequestMessage other) : this() {
-    methodHash_ = other.methodHash_;
-    payload_ = other.payload_;
+  public ClientRpc(ClientRpc other) : this() {
+    objId_ = other.objId_;
+    behaviorIdx_ = other.behaviorIdx_;
+    methodId_ = other.methodId_;
+    payloads_ = other.payloads_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcRequestMessage Clone() {
-    return new RpcRequestMessage(this);
+  public ClientRpc Clone() {
+    return new ClientRpc(this);
   }
 
-  /// <summary>Field number for the "methodHash" field.</summary>
-  public const int MethodHashFieldNumber = 1;
-  private long methodHash_;
+  /// <summary>Field number for the "objId" field.</summary>
+  public const int ObjIdFieldNumber = 1;
+  private int objId_;
+  /// <summary>
+  ///目标对象Id
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long MethodHash {
-    get { return methodHash_; }
+  public int ObjId {
+    get { return objId_; }
     set {
-      methodHash_ = value;
+      objId_ = value;
     }
   }
 
-  /// <summary>Field number for the "payload" field.</summary>
-  public const int PayloadFieldNumber = 2;
-  private pb::ByteString payload_ = pb::ByteString.Empty;
+  /// <summary>Field number for the "behaviorIdx" field.</summary>
+  public const int BehaviorIdxFieldNumber = 2;
+  private int behaviorIdx_;
+  /// <summary>
+  ///目标行为Id
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pb::ByteString Payload {
-    get { return payload_; }
+  public int BehaviorIdx {
+    get { return behaviorIdx_; }
     set {
-      payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      behaviorIdx_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "methodId" field.</summary>
+  public const int MethodIdFieldNumber = 3;
+  private int methodId_;
+  /// <summary>
+  ///目标方法Id
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int MethodId {
+    get { return methodId_; }
+    set {
+      methodId_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "payloads" field.</summary>
+  public const int PayloadsFieldNumber = 4;
+  private pb::ByteString payloads_ = pb::ByteString.Empty;
+  /// <summary>
+  ///参数信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pb::ByteString Payloads {
+    get { return payloads_; }
+    set {
+      payloads_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
-    return Equals(other as RpcRequestMessage);
+    return Equals(other as ClientRpc);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(RpcRequestMessage other) {
+  public bool Equals(ClientRpc other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (MethodHash != other.MethodHash) return false;
-    if (Payload != other.Payload) return false;
+    if (ObjId != other.ObjId) return false;
+    if (BehaviorIdx != other.BehaviorIdx) return false;
+    if (MethodId != other.MethodId) return false;
+    if (Payloads != other.Payloads) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (MethodHash != 0L) hash ^= MethodHash.GetHashCode();
-    if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+    if (ObjId != 0) hash ^= ObjId.GetHashCode();
+    if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
+    if (MethodId != 0) hash ^= MethodId.GetHashCode();
+    if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1183,13 +1284,21 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (MethodHash != 0L) {
+    if (ObjId != 0) {
       output.WriteRawTag(8);
-      output.WriteInt64(MethodHash);
+      output.WriteInt32(ObjId);
     }
-    if (Payload.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteBytes(Payload);
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteBytes(Payloads);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -1200,13 +1309,21 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (MethodHash != 0L) {
+    if (ObjId != 0) {
       output.WriteRawTag(8);
-      output.WriteInt64(MethodHash);
+      output.WriteInt32(ObjId);
     }
-    if (Payload.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteBytes(Payload);
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteBytes(Payloads);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -1217,11 +1334,17 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (MethodHash != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(MethodHash);
+    if (ObjId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
     }
-    if (Payload.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payload);
+    if (BehaviorIdx != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payloads);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -1230,15 +1353,21 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(RpcRequestMessage other) {
+  public void MergeFrom(ClientRpc other) {
     if (other == null) {
       return;
     }
-    if (other.MethodHash != 0L) {
-      MethodHash = other.MethodHash;
+    if (other.ObjId != 0) {
+      ObjId = other.ObjId;
     }
-    if (other.Payload.Length != 0) {
-      Payload = other.Payload;
+    if (other.BehaviorIdx != 0) {
+      BehaviorIdx = other.BehaviorIdx;
+    }
+    if (other.MethodId != 0) {
+      MethodId = other.MethodId;
+    }
+    if (other.Payloads.Length != 0) {
+      Payloads = other.Payloads;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1255,11 +1384,19 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          MethodHash = input.ReadInt64();
+          ObjId = input.ReadInt32();
           break;
         }
-        case 18: {
-          Payload = input.ReadBytes();
+        case 16: {
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 24: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 34: {
+          Payloads = input.ReadBytes();
           break;
         }
       }
@@ -1277,11 +1414,19 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          MethodHash = input.ReadInt64();
+          ObjId = input.ReadInt32();
           break;
         }
-        case 18: {
-          Payload = input.ReadBytes();
+        case 16: {
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 24: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 34: {
+          Payloads = input.ReadBytes();
           break;
         }
       }
@@ -1292,17 +1437,17 @@ public sealed partial class RpcRequestMessage : pb::IMessage<RpcRequestMessage>
 }
 
 /// <summary>
-///Rpc响应消息
+/// 服务器调用 在指定客户端执行
 /// </summary>
-public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage>
+public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
 #endif
 {
-  private static readonly pb::MessageParser<RpcResponseMessage> _parser = new pb::MessageParser<RpcResponseMessage>(() => new RpcResponseMessage());
+  private static readonly pb::MessageParser<TargetRpc> _parser = new pb::MessageParser<TargetRpc>(() => new TargetRpc());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<RpcResponseMessage> Parser { get { return _parser; } }
+  public static pb::MessageParser<TargetRpc> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
@@ -1315,83 +1460,126 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcResponseMessage() {
+  public TargetRpc() {
     OnConstruction();
   }
 
   partial void OnConstruction();
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcResponseMessage(RpcResponseMessage other) : this() {
-    methodHash_ = other.methodHash_;
-    payload_ = other.payload_;
-    errorCode_ = other.errorCode_;
+  public TargetRpc(TargetRpc other) : this() {
+    clientId_ = other.clientId_;
+    objId_ = other.objId_;
+    behaviorIdx_ = other.behaviorIdx_;
+    methodId_ = other.methodId_;
+    payloads_ = other.payloads_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public RpcResponseMessage Clone() {
-    return new RpcResponseMessage(this);
+  public TargetRpc Clone() {
+    return new TargetRpc(this);
   }
 
-  /// <summary>Field number for the "methodHash" field.</summary>
-  public const int MethodHashFieldNumber = 1;
-  private long methodHash_;
+  /// <summary>Field number for the "clientId" field.</summary>
+  public const int ClientIdFieldNumber = 1;
+  private long clientId_;
+  /// <summary>
+  ///目标客户端Id
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public long MethodHash {
-    get { return methodHash_; }
+  public long ClientId {
+    get { return clientId_; }
     set {
-      methodHash_ = value;
+      clientId_ = value;
     }
   }
 
-  /// <summary>Field number for the "payload" field.</summary>
-  public const int PayloadFieldNumber = 2;
-  private pb::ByteString payload_ = pb::ByteString.Empty;
+  /// <summary>Field number for the "objId" field.</summary>
+  public const int ObjIdFieldNumber = 2;
+  private int objId_;
+  /// <summary>
+  ///目标对象Id
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pb::ByteString Payload {
-    get { return payload_; }
+  public int ObjId {
+    get { return objId_; }
     set {
-      payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      objId_ = value;
     }
   }
 
-  /// <summary>Field number for the "errorCode" field.</summary>
-  public const int ErrorCodeFieldNumber = 3;
-  private global::ProtoErrorCode errorCode_ = global::ProtoErrorCode.Success;
+  /// <summary>Field number for the "behaviorIdx" field.</summary>
+  public const int BehaviorIdxFieldNumber = 3;
+  private int behaviorIdx_;
+  /// <summary>
+  ///目标行为Id
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ProtoErrorCode ErrorCode {
-    get { return errorCode_; }
+  public int BehaviorIdx {
+    get { return behaviorIdx_; }
     set {
-      errorCode_ = value;
+      behaviorIdx_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "methodId" field.</summary>
+  public const int MethodIdFieldNumber = 4;
+  private int methodId_;
+  /// <summary>
+  ///目标方法Id
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int MethodId {
+    get { return methodId_; }
+    set {
+      methodId_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "payloads" field.</summary>
+  public const int PayloadsFieldNumber = 5;
+  private pb::ByteString payloads_ = pb::ByteString.Empty;
+  /// <summary>
+  ///参数信息
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pb::ByteString Payloads {
+    get { return payloads_; }
+    set {
+      payloads_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
-    return Equals(other as RpcResponseMessage);
+    return Equals(other as TargetRpc);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(RpcResponseMessage other) {
+  public bool Equals(TargetRpc other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (MethodHash != other.MethodHash) return false;
-    if (Payload != other.Payload) return false;
-    if (ErrorCode != other.ErrorCode) return false;
+    if (ClientId != other.ClientId) return false;
+    if (ObjId != other.ObjId) return false;
+    if (BehaviorIdx != other.BehaviorIdx) return false;
+    if (MethodId != other.MethodId) return false;
+    if (Payloads != other.Payloads) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (MethodHash != 0L) hash ^= MethodHash.GetHashCode();
-    if (Payload.Length != 0) hash ^= Payload.GetHashCode();
-    if (ErrorCode != global::ProtoErrorCode.Success) hash ^= ErrorCode.GetHashCode();
+    if (ClientId != 0L) hash ^= ClientId.GetHashCode();
+    if (ObjId != 0) hash ^= ObjId.GetHashCode();
+    if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
+    if (MethodId != 0) hash ^= MethodId.GetHashCode();
+    if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1408,17 +1596,25 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (MethodHash != 0L) {
+    if (ClientId != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(MethodHash);
+      output.WriteInt64(ClientId);
     }
-    if (Payload.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteBytes(Payload);
+    if (ObjId != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(ObjId);
     }
-    if (ErrorCode != global::ProtoErrorCode.Success) {
+    if (BehaviorIdx != 0) {
       output.WriteRawTag(24);
-      output.WriteEnum((int) ErrorCode);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(32);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(42);
+      output.WriteBytes(Payloads);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -1429,17 +1625,25 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (MethodHash != 0L) {
+    if (ClientId != 0L) {
       output.WriteRawTag(8);
-      output.WriteInt64(MethodHash);
+      output.WriteInt64(ClientId);
     }
-    if (Payload.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteBytes(Payload);
+    if (ObjId != 0) {
+      output.WriteRawTag(16);
+      output.WriteInt32(ObjId);
     }
-    if (ErrorCode != global::ProtoErrorCode.Success) {
+    if (BehaviorIdx != 0) {
       output.WriteRawTag(24);
-      output.WriteEnum((int) ErrorCode);
+      output.WriteInt32(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      output.WriteRawTag(32);
+      output.WriteInt32(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      output.WriteRawTag(42);
+      output.WriteBytes(Payloads);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -1450,14 +1654,20 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (MethodHash != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(MethodHash);
+    if (ClientId != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(ClientId);
     }
-    if (Payload.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payload);
+    if (ObjId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
     }
-    if (ErrorCode != global::ProtoErrorCode.Success) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ErrorCode);
+    if (BehaviorIdx != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
+    }
+    if (MethodId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(MethodId);
+    }
+    if (Payloads.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payloads);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -1466,18 +1676,24 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(RpcResponseMessage other) {
+  public void MergeFrom(TargetRpc other) {
     if (other == null) {
       return;
     }
-    if (other.MethodHash != 0L) {
-      MethodHash = other.MethodHash;
+    if (other.ClientId != 0L) {
+      ClientId = other.ClientId;
     }
-    if (other.Payload.Length != 0) {
-      Payload = other.Payload;
+    if (other.ObjId != 0) {
+      ObjId = other.ObjId;
     }
-    if (other.ErrorCode != global::ProtoErrorCode.Success) {
-      ErrorCode = other.ErrorCode;
+    if (other.BehaviorIdx != 0) {
+      BehaviorIdx = other.BehaviorIdx;
+    }
+    if (other.MethodId != 0) {
+      MethodId = other.MethodId;
+    }
+    if (other.Payloads.Length != 0) {
+      Payloads = other.Payloads;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1494,15 +1710,23 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          MethodHash = input.ReadInt64();
+          ClientId = input.ReadInt64();
           break;
         }
-        case 18: {
-          Payload = input.ReadBytes();
+        case 16: {
+          ObjId = input.ReadInt32();
           break;
         }
         case 24: {
-          ErrorCode = (global::ProtoErrorCode) input.ReadEnum();
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 32: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 42: {
+          Payloads = input.ReadBytes();
           break;
         }
       }
@@ -1520,15 +1744,23 @@ public sealed partial class RpcResponseMessage : pb::IMessage<RpcResponseMessage
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          MethodHash = input.ReadInt64();
+          ClientId = input.ReadInt64();
           break;
         }
-        case 18: {
-          Payload = input.ReadBytes();
+        case 16: {
+          ObjId = input.ReadInt32();
           break;
         }
         case 24: {
-          ErrorCode = (global::ProtoErrorCode) input.ReadEnum();
+          BehaviorIdx = input.ReadInt32();
+          break;
+        }
+        case 32: {
+          MethodId = input.ReadInt32();
+          break;
+        }
+        case 42: {
+          Payloads = input.ReadBytes();
           break;
         }
       }
@@ -1567,7 +1799,7 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public CreateObjResponse(CreateObjResponse other) : this() {
-    id_ = other.id_;
+    objId_ = other.objId_;
     x_ = other.x_;
     y_ = other.y_;
     z_ = other.z_;
@@ -1579,14 +1811,14 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
     return new CreateObjResponse(this);
   }
 
-  /// <summary>Field number for the "id" field.</summary>
-  public const int IdFieldNumber = 1;
-  private uint id_;
+  /// <summary>Field number for the "objId" field.</summary>
+  public const int ObjIdFieldNumber = 1;
+  private uint objId_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public uint Id {
-    get { return id_; }
+  public uint ObjId {
+    get { return objId_; }
     set {
-      id_ = value;
+      objId_ = value;
     }
   }
 
@@ -1636,7 +1868,7 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (Id != other.Id) return false;
+    if (ObjId != other.ObjId) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Z, other.Z)) return false;
@@ -1646,7 +1878,7 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (Id != 0) hash ^= Id.GetHashCode();
+    if (ObjId != 0) hash ^= ObjId.GetHashCode();
     if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
     if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
     if (Z != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Z);
@@ -1666,9 +1898,9 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (Id != 0) {
+    if (ObjId != 0) {
       output.WriteRawTag(8);
-      output.WriteUInt32(Id);
+      output.WriteUInt32(ObjId);
     }
     if (X != 0F) {
       output.WriteRawTag(21);
@@ -1691,9 +1923,9 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Id != 0) {
+    if (ObjId != 0) {
       output.WriteRawTag(8);
-      output.WriteUInt32(Id);
+      output.WriteUInt32(ObjId);
     }
     if (X != 0F) {
       output.WriteRawTag(21);
@@ -1716,8 +1948,8 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (Id != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+    if (ObjId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ObjId);
     }
     if (X != 0F) {
       size += 1 + 4;
@@ -1739,8 +1971,8 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
     if (other == null) {
       return;
     }
-    if (other.Id != 0) {
-      Id = other.Id;
+    if (other.ObjId != 0) {
+      ObjId = other.ObjId;
     }
     if (other.X != 0F) {
       X = other.X;
@@ -1766,7 +1998,7 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Id = input.ReadUInt32();
+          ObjId = input.ReadUInt32();
           break;
         }
         case 21: {
@@ -1796,7 +2028,7 @@ public sealed partial class CreateObjResponse : pb::IMessage<CreateObjResponse>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          Id = input.ReadUInt32();
+          ObjId = input.ReadUInt32();
           break;
         }
         case 21: {
@@ -2053,6 +2285,217 @@ public sealed partial class CreateObjRequest : pb::IMessage<CreateObjRequest>
         }
         case 29: {
           Z = input.ReadFloat();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+/// 错误消息
+/// </summary>
+public sealed partial class ErrorMessage : pb::IMessage<ErrorMessage>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ErrorMessage> _parser = new pb::MessageParser<ErrorMessage>(() => new ErrorMessage());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ErrorMessage> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::BuildInReflection.Descriptor.MessageTypes[9]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ErrorMessage() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ErrorMessage(ErrorMessage other) : this() {
+    code_ = other.code_;
+    info_ = other.info_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ErrorMessage Clone() {
+    return new ErrorMessage(this);
+  }
+
+  /// <summary>Field number for the "code" field.</summary>
+  public const int CodeFieldNumber = 1;
+  private global::ProtoErrorCode code_ = global::ProtoErrorCode.Success;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::ProtoErrorCode Code {
+    get { return code_; }
+    set {
+      code_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "info" field.</summary>
+  public const int InfoFieldNumber = 2;
+  private string info_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Info {
+    get { return info_; }
+    set {
+      info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ErrorMessage);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ErrorMessage other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Code != other.Code) return false;
+    if (Info != other.Info) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Code != global::ProtoErrorCode.Success) hash ^= Code.GetHashCode();
+    if (Info.Length != 0) hash ^= Info.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Code != global::ProtoErrorCode.Success) {
+      output.WriteRawTag(8);
+      output.WriteEnum((int) Code);
+    }
+    if (Info.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Info);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Code != global::ProtoErrorCode.Success) {
+      output.WriteRawTag(8);
+      output.WriteEnum((int) Code);
+    }
+    if (Info.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Info);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Code != global::ProtoErrorCode.Success) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Code);
+    }
+    if (Info.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ErrorMessage other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Code != global::ProtoErrorCode.Success) {
+      Code = other.Code;
+    }
+    if (other.Info.Length != 0) {
+      Info = other.Info;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          Code = (global::ProtoErrorCode) input.ReadEnum();
+          break;
+        }
+        case 18: {
+          Info = input.ReadString();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 8: {
+          Code = (global::ProtoErrorCode) input.ReadEnum();
+          break;
+        }
+        case 18: {
+          Info = input.ReadString();
           break;
         }
       }

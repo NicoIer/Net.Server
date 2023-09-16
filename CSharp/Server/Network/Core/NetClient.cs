@@ -10,9 +10,7 @@ namespace Nico
         public T msg;
         public int channelId;
     }
-
-
-    [Serializable]
+    
     public class NetClient
     {
         public string address;
@@ -75,12 +73,12 @@ namespace Nico
 
         private void _OnConnected()
         {
-            OnConnected?.Invoke();
+            OnConnected();
         }
 
         private void _OnError(TransportError error, string msg)
         {
-            OnError?.Invoke(error, msg);
+            OnError(error, msg);
         }
 
         private void _OnDisconnected()

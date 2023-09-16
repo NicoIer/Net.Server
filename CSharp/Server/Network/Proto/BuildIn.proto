@@ -5,48 +5,49 @@ message PacketHeader{
   bytes body = 3; //消息体
 }
 
-// 错误消息
-message ErrorMessage{
-  ProtoErrorCode code = 1;
-  string info = 2;
-}
-
-// 错误码
-enum ProtoErrorCode{
-  SUCCESS = 0;
-  ERROR = 1;
-}
-
 message StringMessage{
   string msg = 1;
 }
 
 message PingMessage{
-  int64 serverTime = 1;
-  int64 clientTime = 2;
+  int64 senderTime = 1;//发送时间
 }
 
 message PongMessage{
-  int64 serverTime = 1;
-  int64 clientTime = 2;
+  int64 receiveTime = 1;//接收时间
+  int64 senderTime = 2;//ping的发送时间
 }
 
-//Rpc请求消息
-message RpcRequestMessage{
-  int64 methodHash = 1;
-  bytes payload = 2;
+//客户端调用 服务器执行
+message ServerRpc{
+  int32 objId = 1;//目标对象Id
+  int32 behaviorIdx = 2;//目标行为Id
+  int32 methodId = 3;//目标方法Id
+  bytes payloads = 4;//参数信息
 }
 
-//Rpc响应消息
-message RpcResponseMessage{
-  int64 methodHash = 1;
-  bytes payload = 2;
-  ProtoErrorCode errorCode = 3;
+//服务器调用 在所有客户端执行
+message ClientRpc{
+  int32 objId = 1;//目标对象Id
+  int32 behaviorIdx = 2;//目标行为Id
+  int32 methodId = 3;//目标方法Id
+  bytes payloads = 4;//参数信息
 }
+
+// 服务器调用 在指定客户端执行
+message TargetRpc{
+  int64 clientId = 1;//目标客户端Id
+  int32 objId = 2;//目标对象Id
+  int32 behaviorIdx = 3;//目标行为Id
+  int32 methodId = 4;//目标方法Id
+  bytes payloads = 5;//参数信息
+}
+
+
 
 
 message CreateObjResponse{
-  uint32 id = 1;
+  uint32 objId = 1;
   float x = 2;
   float y = 3;
   float z = 4;
@@ -57,4 +58,17 @@ message CreateObjRequest{
   float x = 1;
   float y = 2;
   float z = 3;
+}
+
+
+// 错误消息
+message ErrorMessage{
+  ProtoErrorCode code = 1;
+  string info = 2;
+}
+
+// 错误码
+enum ProtoErrorCode{
+  SUCCESS = 0;
+  ERROR = 1;
 }
