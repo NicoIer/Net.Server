@@ -20,7 +20,6 @@ message PongMessage{
 
 //客户端调用 服务器执行
 message ServerRpc{
-  int32 objId = 1;//目标对象Id
   int32 behaviorIdx = 2;//目标行为Id
   int32 methodId = 3;//目标方法Id
   bytes payloads = 4;//参数信息
@@ -28,7 +27,6 @@ message ServerRpc{
 
 //服务器调用 在所有客户端执行
 message ClientRpc{
-  int32 objId = 1;//目标对象Id
   int32 behaviorIdx = 2;//目标行为Id
   int32 methodId = 3;//目标方法Id
   bytes payloads = 4;//参数信息
@@ -37,7 +35,6 @@ message ClientRpc{
 // 服务器调用 在指定客户端执行
 message TargetRpc{
   int64 clientId = 1;//目标客户端Id
-  int32 objId = 2;//目标对象Id
   int32 behaviorIdx = 3;//目标行为Id
   int32 methodId = 4;//目标方法Id
   bytes payloads = 5;//参数信息

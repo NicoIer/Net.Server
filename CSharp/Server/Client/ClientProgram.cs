@@ -4,15 +4,17 @@ using kcp2k;
 using Nico;
 using Server;
 
-async Task ClientFunc()
+async Task ClientFunc(int id)
 {
     KcpConfig config = KcpUtil.GetDefaultConfig();
     config.DualMode = false;
     KcpClientTransport transport = new KcpClientTransport(config, 24419);
     NetClient client = new NetClient(transport, "localhost");
+    client.OnConnected += () => { Console.WriteLine($"Client: OnConnected :{client.connected}"); };
+    client.OnError += (error, msg) => { Console.WriteLine($"Client: OnError:{msg}"); };
     World world = new World(client);
-    NetObj obj1 = world.AddObj();
-    TestBehavior behavior = obj1.AddBehavior<TestBehavior>();
+
+    TestBehavior behavior = world.Add<TestBehavior>();
 
     Task endTask = Task.Run(() => { Console.ReadLine(); });
     client.Start();
@@ -26,8 +28,8 @@ async Task ClientFunc()
             await Task.Delay(TimeSpan.FromSeconds(1));
         }
     });
-    client.OnConnected += () => { Console.WriteLine($"Client: OnConnected :{client.connected}"); };
-    client.OnError+= (error,msg) => { Console.WriteLine($"Client: OnError:{msg}"); };
+    client.OnConnected += () => { Console.WriteLine($"Client{id}: OnConnected :{client.connected}"); };
+    client.OnError += (error, msg) => { Console.WriteLine($"Client{id}: OnError:{msg}"); };
     while (true)
     {
         if (endTask.IsCanceled || endTask.IsCompleted || !client.connected)
@@ -38,11 +40,10 @@ async Task ClientFunc()
         await Task.Delay(TimeSpan.FromMilliseconds(330));
         client.OnEarlyUpdate();
         client.OnLateUpdate();
-        behavior.TestRpc();
+        behavior.SendXXXRpc();
     }
 
     client.Stop();
 }
-await Task.WhenAll( ClientFunc(),ClientFunc());
 
-
+await Task.WhenAll(ClientFunc(0), ClientFunc(1));

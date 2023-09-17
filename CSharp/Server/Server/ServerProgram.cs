@@ -2,9 +2,6 @@
 
 using kcp2k;
 using Nico;
-using Server;
-
-
 
 
 async Task ServerFunc()
@@ -17,12 +14,11 @@ async Task ServerFunc()
     server.onConnected += (id) => { Console.WriteLine($"conn:{id}"); };
     server.RegisterHandler<ServerRpc>(pack =>
     {
-        Console.WriteLine("On ServerRpc");
+        Console.WriteLine($"ServerRpc From {pack.connectId} methodId:{pack.msg.MethodId}");
         ServerRpc rpc = pack.msg;
         ClientRpc clientRpc = ProtoHandler.Get<ClientRpc>();
         clientRpc.BehaviorIdx = rpc.BehaviorIdx;
         clientRpc.MethodId = rpc.MethodId;
-        clientRpc.ObjId = rpc.ObjId;
         clientRpc.Payloads = rpc.Payloads;
         server.SendToAll(clientRpc, pack.channelId);
         rpc.Return();

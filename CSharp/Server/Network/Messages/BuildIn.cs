@@ -25,12 +25,11 @@ public static partial class BuildInReflection {
           "Cg1CdWlsZEluLnByb3RvIigKDFBhY2tldEhlYWRlchIKCgJpZBgBIAEoBRIM",
           "CgRib2R5GAMgASgMIhwKDVN0cmluZ01lc3NhZ2USCwoDbXNnGAEgASgJIiEK",
           "C1BpbmdNZXNzYWdlEhIKCnNlbmRlclRpbWUYASABKAMiNgoLUG9uZ01lc3Nh",
-          "Z2USEwoLcmVjZWl2ZVRpbWUYASABKAMSEgoKc2VuZGVyVGltZRgCIAEoAyJT",
-          "CglTZXJ2ZXJScGMSDQoFb2JqSWQYASABKAUSEwoLYmVoYXZpb3JJZHgYAiAB",
-          "KAUSEAoIbWV0aG9kSWQYAyABKAUSEAoIcGF5bG9hZHMYBCABKAwiUwoJQ2xp",
-          "ZW50UnBjEg0KBW9iaklkGAEgASgFEhMKC2JlaGF2aW9ySWR4GAIgASgFEhAK",
-          "CG1ldGhvZElkGAMgASgFEhAKCHBheWxvYWRzGAQgASgMImUKCVRhcmdldFJw",
-          "YxIQCghjbGllbnRJZBgBIAEoAxINCgVvYmpJZBgCIAEoBRITCgtiZWhhdmlv",
+          "Z2USEwoLcmVjZWl2ZVRpbWUYASABKAMSEgoKc2VuZGVyVGltZRgCIAEoAyJE",
+          "CglTZXJ2ZXJScGMSEwoLYmVoYXZpb3JJZHgYAiABKAUSEAoIbWV0aG9kSWQY",
+          "AyABKAUSEAoIcGF5bG9hZHMYBCABKAwiRAoJQ2xpZW50UnBjEhMKC2JlaGF2",
+          "aW9ySWR4GAIgASgFEhAKCG1ldGhvZElkGAMgASgFEhAKCHBheWxvYWRzGAQg",
+          "ASgMIlYKCVRhcmdldFJwYxIQCghjbGllbnRJZBgBIAEoAxITCgtiZWhhdmlv",
           "cklkeBgDIAEoBRIQCghtZXRob2RJZBgEIAEoBRIQCghwYXlsb2FkcxgFIAEo",
           "DCJDChFDcmVhdGVPYmpSZXNwb25zZRINCgVvYmpJZBgBIAEoDRIJCgF4GAIg",
           "ASgCEgkKAXkYAyABKAISCQoBehgEIAEoAiIzChBDcmVhdGVPYmpSZXF1ZXN0",
@@ -45,9 +44,9 @@ public static partial class BuildInReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::StringMessage), global::StringMessage.Parser, new[]{ "Msg" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PingMessage), global::PingMessage.Parser, new[]{ "SenderTime" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PongMessage), global::PongMessage.Parser, new[]{ "ReceiveTime", "SenderTime" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ServerRpc), global::ServerRpc.Parser, new[]{ "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ClientRpc), global::ClientRpc.Parser, new[]{ "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::TargetRpc), global::TargetRpc.Parser, new[]{ "ClientId", "ObjId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ServerRpc), global::ServerRpc.Parser, new[]{ "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ClientRpc), global::ClientRpc.Parser, new[]{ "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::TargetRpc), global::TargetRpc.Parser, new[]{ "ClientId", "BehaviorIdx", "MethodId", "Payloads" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjResponse), global::CreateObjResponse.Parser, new[]{ "ObjId", "X", "Y", "Z" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::CreateObjRequest), global::CreateObjRequest.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ErrorMessage), global::ErrorMessage.Parser, new[]{ "Code", "Info" }, null, null, null, null)
@@ -878,7 +877,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public ServerRpc(ServerRpc other) : this() {
-    objId_ = other.objId_;
     behaviorIdx_ = other.behaviorIdx_;
     methodId_ = other.methodId_;
     payloads_ = other.payloads_;
@@ -888,20 +886,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public ServerRpc Clone() {
     return new ServerRpc(this);
-  }
-
-  /// <summary>Field number for the "objId" field.</summary>
-  public const int ObjIdFieldNumber = 1;
-  private int objId_;
-  /// <summary>
-  ///目标对象Id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int ObjId {
-    get { return objId_; }
-    set {
-      objId_ = value;
-    }
   }
 
   /// <summary>Field number for the "behaviorIdx" field.</summary>
@@ -959,7 +943,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (ObjId != other.ObjId) return false;
     if (BehaviorIdx != other.BehaviorIdx) return false;
     if (MethodId != other.MethodId) return false;
     if (Payloads != other.Payloads) return false;
@@ -969,7 +952,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (ObjId != 0) hash ^= ObjId.GetHashCode();
     if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
     if (MethodId != 0) hash ^= MethodId.GetHashCode();
     if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
@@ -989,10 +971,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (ObjId != 0) {
-      output.WriteRawTag(8);
-      output.WriteInt32(ObjId);
-    }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(16);
       output.WriteInt32(BehaviorIdx);
@@ -1014,10 +992,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (ObjId != 0) {
-      output.WriteRawTag(8);
-      output.WriteInt32(ObjId);
-    }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(16);
       output.WriteInt32(BehaviorIdx);
@@ -1039,9 +1013,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (ObjId != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
-    }
     if (BehaviorIdx != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
     }
@@ -1061,9 +1032,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
   public void MergeFrom(ServerRpc other) {
     if (other == null) {
       return;
-    }
-    if (other.ObjId != 0) {
-      ObjId = other.ObjId;
     }
     if (other.BehaviorIdx != 0) {
       BehaviorIdx = other.BehaviorIdx;
@@ -1088,10 +1056,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 8: {
-          ObjId = input.ReadInt32();
-          break;
-        }
         case 16: {
           BehaviorIdx = input.ReadInt32();
           break;
@@ -1118,10 +1082,6 @@ public sealed partial class ServerRpc : pb::IMessage<ServerRpc>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 8: {
-          ObjId = input.ReadInt32();
-          break;
-        }
         case 16: {
           BehaviorIdx = input.ReadInt32();
           break;
@@ -1173,7 +1133,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public ClientRpc(ClientRpc other) : this() {
-    objId_ = other.objId_;
     behaviorIdx_ = other.behaviorIdx_;
     methodId_ = other.methodId_;
     payloads_ = other.payloads_;
@@ -1183,20 +1142,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public ClientRpc Clone() {
     return new ClientRpc(this);
-  }
-
-  /// <summary>Field number for the "objId" field.</summary>
-  public const int ObjIdFieldNumber = 1;
-  private int objId_;
-  /// <summary>
-  ///目标对象Id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int ObjId {
-    get { return objId_; }
-    set {
-      objId_ = value;
-    }
   }
 
   /// <summary>Field number for the "behaviorIdx" field.</summary>
@@ -1254,7 +1199,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (ObjId != other.ObjId) return false;
     if (BehaviorIdx != other.BehaviorIdx) return false;
     if (MethodId != other.MethodId) return false;
     if (Payloads != other.Payloads) return false;
@@ -1264,7 +1208,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (ObjId != 0) hash ^= ObjId.GetHashCode();
     if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
     if (MethodId != 0) hash ^= MethodId.GetHashCode();
     if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
@@ -1284,10 +1227,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (ObjId != 0) {
-      output.WriteRawTag(8);
-      output.WriteInt32(ObjId);
-    }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(16);
       output.WriteInt32(BehaviorIdx);
@@ -1309,10 +1248,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (ObjId != 0) {
-      output.WriteRawTag(8);
-      output.WriteInt32(ObjId);
-    }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(16);
       output.WriteInt32(BehaviorIdx);
@@ -1334,9 +1269,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (ObjId != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
-    }
     if (BehaviorIdx != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
     }
@@ -1356,9 +1288,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
   public void MergeFrom(ClientRpc other) {
     if (other == null) {
       return;
-    }
-    if (other.ObjId != 0) {
-      ObjId = other.ObjId;
     }
     if (other.BehaviorIdx != 0) {
       BehaviorIdx = other.BehaviorIdx;
@@ -1383,10 +1312,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 8: {
-          ObjId = input.ReadInt32();
-          break;
-        }
         case 16: {
           BehaviorIdx = input.ReadInt32();
           break;
@@ -1413,10 +1338,6 @@ public sealed partial class ClientRpc : pb::IMessage<ClientRpc>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 8: {
-          ObjId = input.ReadInt32();
-          break;
-        }
         case 16: {
           BehaviorIdx = input.ReadInt32();
           break;
@@ -1469,7 +1390,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public TargetRpc(TargetRpc other) : this() {
     clientId_ = other.clientId_;
-    objId_ = other.objId_;
     behaviorIdx_ = other.behaviorIdx_;
     methodId_ = other.methodId_;
     payloads_ = other.payloads_;
@@ -1492,20 +1412,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
     get { return clientId_; }
     set {
       clientId_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "objId" field.</summary>
-  public const int ObjIdFieldNumber = 2;
-  private int objId_;
-  /// <summary>
-  ///目标对象Id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int ObjId {
-    get { return objId_; }
-    set {
-      objId_ = value;
     }
   }
 
@@ -1565,7 +1471,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
       return true;
     }
     if (ClientId != other.ClientId) return false;
-    if (ObjId != other.ObjId) return false;
     if (BehaviorIdx != other.BehaviorIdx) return false;
     if (MethodId != other.MethodId) return false;
     if (Payloads != other.Payloads) return false;
@@ -1576,7 +1481,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
   public override int GetHashCode() {
     int hash = 1;
     if (ClientId != 0L) hash ^= ClientId.GetHashCode();
-    if (ObjId != 0) hash ^= ObjId.GetHashCode();
     if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
     if (MethodId != 0) hash ^= MethodId.GetHashCode();
     if (Payloads.Length != 0) hash ^= Payloads.GetHashCode();
@@ -1599,10 +1503,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
     if (ClientId != 0L) {
       output.WriteRawTag(8);
       output.WriteInt64(ClientId);
-    }
-    if (ObjId != 0) {
-      output.WriteRawTag(16);
-      output.WriteInt32(ObjId);
     }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(24);
@@ -1629,10 +1529,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
       output.WriteRawTag(8);
       output.WriteInt64(ClientId);
     }
-    if (ObjId != 0) {
-      output.WriteRawTag(16);
-      output.WriteInt32(ObjId);
-    }
     if (BehaviorIdx != 0) {
       output.WriteRawTag(24);
       output.WriteInt32(BehaviorIdx);
@@ -1657,9 +1553,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
     if (ClientId != 0L) {
       size += 1 + pb::CodedOutputStream.ComputeInt64Size(ClientId);
     }
-    if (ObjId != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjId);
-    }
     if (BehaviorIdx != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
     }
@@ -1682,9 +1575,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
     }
     if (other.ClientId != 0L) {
       ClientId = other.ClientId;
-    }
-    if (other.ObjId != 0) {
-      ObjId = other.ObjId;
     }
     if (other.BehaviorIdx != 0) {
       BehaviorIdx = other.BehaviorIdx;
@@ -1711,10 +1601,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
           break;
         case 8: {
           ClientId = input.ReadInt64();
-          break;
-        }
-        case 16: {
-          ObjId = input.ReadInt32();
           break;
         }
         case 24: {
@@ -1745,10 +1631,6 @@ public sealed partial class TargetRpc : pb::IMessage<TargetRpc>
           break;
         case 8: {
           ClientId = input.ReadInt64();
-          break;
-        }
-        case 16: {
-          ObjId = input.ReadInt32();
           break;
         }
         case 24: {
