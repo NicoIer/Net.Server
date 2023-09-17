@@ -1,7 +1,7 @@
 using Google.Protobuf;
 using Nico;
 
-namespace Server
+namespace Client
 {
     public class TestBehavior : NetworkBehavior
     {

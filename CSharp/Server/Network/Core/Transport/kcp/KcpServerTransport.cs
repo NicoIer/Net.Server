@@ -7,7 +7,6 @@ namespace Nico
     /// <summary>
     /// Kcp的服务器端传输
     /// </summary>
-    [Serializable]
     public class KcpServerTransport : ServerTransport
     {
         public ushort port { get; private set; }
