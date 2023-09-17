@@ -36,7 +36,7 @@ namespace Nico
 
                 header.Id = TypeId<T>.ID;
                 body.Pack(msg); //写入body
-                header.Body = body.ToByteString();
+                header.Body = body;
                 buffer.Pack(header); //写入头
 
                 header.Return();

@@ -9,6 +9,10 @@ namespace Nico
     {
         public T msg;
         public int channelId;
+        public static implicit operator T (ServerPack<T> pack)
+        {
+            return pack.msg;
+        }
     }
     
     public class NetClient
@@ -117,7 +121,7 @@ namespace Nico
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
                 ProtoHandler.Pack(buffer, msg);
-                _transport.Send(buffer.ToArraySegment(), channelId);
+                _transport.Send(buffer, channelId);
             }
         }
 

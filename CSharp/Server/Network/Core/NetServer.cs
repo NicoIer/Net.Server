@@ -10,27 +10,30 @@ namespace Nico
         public int connectId;
         public T msg;
         public int channelId;
+
+        public static implicit operator T(ClientPack<T> pack)
+        {
+            return pack.msg;
+        }
     }
-    
+
 
     public class NetServer
     {
         private readonly ServerTransport _transport;
         public bool isRunning => _transport.Active();
-        public event Action<int, TransportError, string> onError;
-        public event Action<int> onDisconnected;
-        public event Action<int> onConnected;
-        public event Action<int, ArraySegment<byte>, int> onDataReceived;
-        public event Action<int, ArraySegment<byte>, int> onDataSent;
+        public event Action<int, TransportError, string> OnError;
+        public event Action<int> OnDisconnected;
+        public event Action<int> OnConnected;
+        public event Action<int, ArraySegment<byte>, int> OnDataReceived;
+        public event Action<int, ArraySegment<byte>, int> OnDataSent;
         private EventCenter _eventCenter;
-
 
         private readonly Dictionary<int, Action<int, ByteString, int>> _handlers;
 
         public NetServer(ServerTransport transport)
         {
-            this._transport = transport;
-
+            _transport = transport;
             transport.onConnected += _OnConnected;
             transport.onDisconnected += _OnDisconnected;
             transport.onError += _OnError;
@@ -42,26 +45,36 @@ namespace Nico
             _eventCenter = new EventCenter();
         }
 
+        ~NetServer()
+        {
+            _transport.onConnected -= _OnConnected;
+            _transport.onDisconnected -= _OnDisconnected;
+            _transport.onError -= _OnError;
+            _transport.onDataReceived -= _OnDataReceived;
+            _transport.onDataSent -= _OnDataSent;
+            Stop();
+        }
+
         #region Transport Event
 
         private void _OnError(int connectId, TransportError error, string msg)
         {
-            onError?.Invoke(connectId, error, msg);
+            OnError?.Invoke(connectId, error, msg);
         }
 
         private void _OnDisconnected(int connectId)
         {
-            onDisconnected?.Invoke(connectId);
+            OnDisconnected?.Invoke(connectId);
         }
 
         private void _OnConnected(int connectId)
         {
-            onConnected?.Invoke(connectId);
+            OnConnected?.Invoke(connectId);
         }
 
         private void _OnDataSent(int connectId, ArraySegment<byte> data, int channel)
         {
-            onDataSent?.Invoke(connectId, data, channel);
+            OnDataSent?.Invoke(connectId, data, channel);
         }
 
         private void _OnDataReceived(int connectId, ArraySegment<byte> data, int channel)
@@ -74,7 +87,7 @@ namespace Nico
             }
 
             _handlers[header.Id](connectId, header.Body, channel);
-            onDataReceived?.Invoke(connectId, data, channel);
+            OnDataReceived?.Invoke(connectId, data, channel);
             header.Return();
         }
 
@@ -84,7 +97,7 @@ namespace Nico
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
                 ProtoHandler.Pack(buffer, msg);
-                _transport.Send(connectId, buffer.ToArraySegment(), channelId);
+                _transport.Send(connectId, buffer, channelId);
             }
         }
 
@@ -93,7 +106,7 @@ namespace Nico
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
                 ProtoHandler.Pack(buffer, msg);
-                _transport.SendToAll(buffer.ToArraySegment(), channelId);
+                _transport.SendToAll(buffer, channelId);
             }
         }
 
@@ -126,9 +139,7 @@ namespace Nico
         #endregion
 
         #region Handler
-        
-        // public void RegisterHandler<T>(Action<int,T,int> handler,bool replace)
-        
+
         public void RegisterHandler<T>(Action<ClientPack<T>> handler) where T : IMessage<T>, new()
         {
             int id = TypeId<T>.ID;
@@ -160,7 +171,6 @@ namespace Nico
             }
 
             _eventCenter.UnRegister<ClientPack<T>>(handler);
-
         }
 
         #endregion

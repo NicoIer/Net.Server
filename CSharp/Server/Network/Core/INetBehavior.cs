@@ -2,9 +2,6 @@ namespace Nico
 {
     public interface INetBehavior
     {
-        public void OnInit(int idx, World world);
-        public int GetIdx();
-        public World GetWorld();
         public void OnSpawn(); // 在网络中生成
         public void OnDeSpawn(); // 在网络中销毁
         public void OnConnect(); //连接上触发
