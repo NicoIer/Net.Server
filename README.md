@@ -1,3 +1,3 @@
-# Net.Server
+# Network
 
-.Net Game Server
+一套网络通信框架，拿来做做游戏
