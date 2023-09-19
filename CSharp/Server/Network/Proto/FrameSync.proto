@@ -1,8 +1,27 @@
 syntax = "proto3";
 
-// 帧同步消息
+
+
+// 帧同步消息 只有当客户端和服务器都准备好了开始游戏 才会发送这个消息
 message FrameRpc{
   int32  methodHash = 1; // 方法hash
-  int32  behaviorIdx = 2; // 行为id
-  bytes  params = 3; // 参数
+  uint64 frame = 2; // 帧号
+  int32  behaviorIdx = 3; // 行为id
+  bytes  params = 4; // 参数
+}
+
+// 帧同步消息 客户端通知服务器已准备好
+message FrameClientReady{
+
+}
+
+// 帧同步消息 通知客户端开始游戏
+message FrameGameStart{
+
+}
+
+
+// 帧同步消息 通知客户端游戏结束
+message FrameGameEnd{
+
 }

@@ -79,8 +79,8 @@ namespace Nico
 
         private void _OnDataReceived(int connectId, ArraySegment<byte> data, int channel)
         {
-            PacketHeader header = ProtoHandler.Get<PacketHeader>();
-            ProtoHandler.UnPack(ref header, data);
+            PacketHeader header = ProtobufHandler.Get<PacketHeader>();
+            ProtobufHandler.UnPack(ref header, data);
             if (!_handlers.ContainsKey(header.Id))
             {
                 throw new InvalidDataException($"unregistered message id:{header.Id}");
@@ -96,7 +96,7 @@ namespace Nico
         {
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
-                ProtoHandler.Pack(buffer, msg);
+                buffer.PackHeader(msg);
                 _transport.Send(connectId, buffer, channelId);
             }
         }
@@ -105,7 +105,7 @@ namespace Nico
         {
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
-                ProtoHandler.Pack(buffer, msg);
+                buffer.PackHeader(msg);
                 _transport.SendToAll(buffer, channelId);
             }
         }
@@ -147,8 +147,8 @@ namespace Nico
             {
                 _handlers[id] = (connectId, data, channel) =>
                 {
-                    T msg = ProtoHandler.Get<T>();
-                    ProtoHandler.UnPack(ref msg, data);
+                    T msg = ProtobufHandler.Get<T>();
+                    ProtobufHandler.UnPack(ref msg, data);
                     _eventCenter.Fire(new ClientPack<T>
                     {
                         connectId = connectId,

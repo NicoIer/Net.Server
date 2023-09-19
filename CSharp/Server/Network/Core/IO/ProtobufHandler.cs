@@ -3,7 +3,7 @@ using Google.Protobuf;
 
 namespace Nico
 {
-    public static class ProtoHandler
+    public static class ProtobufHandler
     {
         /// <summary>
         /// 从缓冲区解包
@@ -21,24 +21,22 @@ namespace Nico
         {
             msg.MergeFrom(data);
         }
-
+        
         /// <summary>
-        /// 把消息打包到缓冲区
+        /// 将消息体包装到消息头中
         /// </summary>
         /// <param name="buffer"></param>
         /// <param name="msg"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(ProtoBuffer buffer, T msg) where T : IMessage<T>
+        public static void PackHeader<T>(this ProtoBuffer buffer, T msg) where T : IMessage<T>
         {
-            using (ProtoBuffer body = ProtoBuffer.Get())
+            using (ProtoBuffer body = ProtoBuffer.Get())//拿两个buffer 一个用来写头 一个用来写body
             {
                 PacketHeader header = Get<PacketHeader>();
-
                 header.Id = TypeId<T>.ID;
-                body.Pack(msg); //写入body
+                body.WriteProto(msg); //写入body
                 header.Body = body;
-                buffer.Pack(header); //写入头
-
+                buffer.WriteProto(header); //写入头
                 header.Return();
             }
         }

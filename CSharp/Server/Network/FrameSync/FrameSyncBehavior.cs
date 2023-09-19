@@ -13,11 +13,11 @@ namespace Nico
             this.client = client;
         }
 
-        public void OnRpc(int methodHash, ProtoBuffer @params, int channel)
-        {
-            
-        }
-
+        /// <summary>
+        /// 调用帧同步方法
+        /// </summary>
+        /// <param name="methodHash"></param>
+        /// <param name="params"></param>
         public void CallFrameRpc(int methodHash, ProtoBuffer @params)
         {
             client.CallFrameRpc(idx, methodHash, @params);

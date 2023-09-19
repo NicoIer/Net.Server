@@ -1,13 +1,17 @@
-using Google.Protobuf;
-
 namespace Nico
 {
+    public struct FrameRpc<T>
+    {
+        public T msg;
+        public int channelId;
+    }
+
     /// <summary>
     /// 帧同步客户端
     /// </summary>
     public class FrameSyncClient : NetClient
     {
-        private List<FrameSyncBehavior> _behaviors;
+        private readonly List<FrameSyncBehavior> _behaviors;
 
         public FrameSyncClient(ClientTransport transport, string address) : base(transport, address)
         {
@@ -30,13 +34,18 @@ namespace Nico
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
                 buffer.From(frameRpc.msg.Params);
-                behavior.OnRpc(msg.MethodHash, buffer, frameRpc.channelId);
+                FrameSyncRpcCenter.OnFrameRpc(behavior, msg.MethodHash, buffer, frameRpc.channelId);
             }
+        }
+
+        internal void CallFrameRpc(FrameSyncBehavior behavior, int methodHash, ProtoBuffer @params)
+        {
+            CallFrameRpc(behavior.idx, methodHash, @params);
         }
 
         internal void CallFrameRpc(int behaviorIdx, int methodHash, ProtoBuffer @params)
         {
-            FrameRpc rpc = ProtoHandler.Get<FrameRpc>();
+            FrameRpc rpc = ProtobufHandler.Get<FrameRpc>();
             rpc.BehaviorIdx = behaviorIdx;
             rpc.MethodHash = methodHash;
             rpc.Params = @params;

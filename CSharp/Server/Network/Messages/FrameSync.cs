@@ -22,13 +22,17 @@ public static partial class FrameSyncReflection {
   static FrameSyncReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Cg9GcmFtZVN5bmMucHJvdG8iQwoIRnJhbWVScGMSEgoKbWV0aG9kSGFzaBgB",
-          "IAEoBRITCgtiZWhhdmlvcklkeBgCIAEoBRIOCgZwYXJhbXMYAyABKAxiBnBy",
-          "b3RvMw=="));
+          "Cg9GcmFtZVN5bmMucHJvdG8iUgoIRnJhbWVScGMSEgoKbWV0aG9kSGFzaBgB",
+          "IAEoBRINCgVmcmFtZRgCIAEoBBITCgtiZWhhdmlvcklkeBgDIAEoBRIOCgZw",
+          "YXJhbXMYBCABKAwiEgoQRnJhbWVDbGllbnRSZWFkeSIQCg5GcmFtZUdhbWVT",
+          "dGFydCIOCgxGcmFtZUdhbWVFbmRiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::FrameRpc), global::FrameRpc.Parser, new[]{ "MethodHash", "BehaviorIdx", "Params" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::FrameRpc), global::FrameRpc.Parser, new[]{ "MethodHash", "Frame", "BehaviorIdx", "Params" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::FrameClientReady), global::FrameClientReady.Parser, null, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::FrameGameStart), global::FrameGameStart.Parser, null, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::FrameGameEnd), global::FrameGameEnd.Parser, null, null, null, null, null)
         }));
   }
   #endregion
@@ -36,7 +40,7 @@ public static partial class FrameSyncReflection {
 }
 #region Messages
 /// <summary>
-/// 帧同步消息
+/// 帧同步消息 只有当客户端和服务器都准备好了开始游戏 才会发送这个消息
 /// </summary>
 public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -68,6 +72,7 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public FrameRpc(FrameRpc other) : this() {
     methodHash_ = other.methodHash_;
+    frame_ = other.frame_;
     behaviorIdx_ = other.behaviorIdx_;
     params_ = other.params_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -92,8 +97,22 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
     }
   }
 
+  /// <summary>Field number for the "frame" field.</summary>
+  public const int FrameFieldNumber = 2;
+  private ulong frame_;
+  /// <summary>
+  /// 帧号
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ulong Frame {
+    get { return frame_; }
+    set {
+      frame_ = value;
+    }
+  }
+
   /// <summary>Field number for the "behaviorIdx" field.</summary>
-  public const int BehaviorIdxFieldNumber = 2;
+  public const int BehaviorIdxFieldNumber = 3;
   private int behaviorIdx_;
   /// <summary>
   /// 行为id
@@ -107,7 +126,7 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
   }
 
   /// <summary>Field number for the "params" field.</summary>
-  public const int ParamsFieldNumber = 3;
+  public const int ParamsFieldNumber = 4;
   private pb::ByteString params_ = pb::ByteString.Empty;
   /// <summary>
   /// 参数
@@ -134,6 +153,7 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
       return true;
     }
     if (MethodHash != other.MethodHash) return false;
+    if (Frame != other.Frame) return false;
     if (BehaviorIdx != other.BehaviorIdx) return false;
     if (Params != other.Params) return false;
     return Equals(_unknownFields, other._unknownFields);
@@ -143,6 +163,7 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
   public override int GetHashCode() {
     int hash = 1;
     if (MethodHash != 0) hash ^= MethodHash.GetHashCode();
+    if (Frame != 0UL) hash ^= Frame.GetHashCode();
     if (BehaviorIdx != 0) hash ^= BehaviorIdx.GetHashCode();
     if (Params.Length != 0) hash ^= Params.GetHashCode();
     if (_unknownFields != null) {
@@ -165,12 +186,16 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
       output.WriteRawTag(8);
       output.WriteInt32(MethodHash);
     }
-    if (BehaviorIdx != 0) {
+    if (Frame != 0UL) {
       output.WriteRawTag(16);
+      output.WriteUInt64(Frame);
+    }
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(24);
       output.WriteInt32(BehaviorIdx);
     }
     if (Params.Length != 0) {
-      output.WriteRawTag(26);
+      output.WriteRawTag(34);
       output.WriteBytes(Params);
     }
     if (_unknownFields != null) {
@@ -186,12 +211,16 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
       output.WriteRawTag(8);
       output.WriteInt32(MethodHash);
     }
-    if (BehaviorIdx != 0) {
+    if (Frame != 0UL) {
       output.WriteRawTag(16);
+      output.WriteUInt64(Frame);
+    }
+    if (BehaviorIdx != 0) {
+      output.WriteRawTag(24);
       output.WriteInt32(BehaviorIdx);
     }
     if (Params.Length != 0) {
-      output.WriteRawTag(26);
+      output.WriteRawTag(34);
       output.WriteBytes(Params);
     }
     if (_unknownFields != null) {
@@ -205,6 +234,9 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
     int size = 0;
     if (MethodHash != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(MethodHash);
+    }
+    if (Frame != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Frame);
     }
     if (BehaviorIdx != 0) {
       size += 1 + pb::CodedOutputStream.ComputeInt32Size(BehaviorIdx);
@@ -225,6 +257,9 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
     }
     if (other.MethodHash != 0) {
       MethodHash = other.MethodHash;
+    }
+    if (other.Frame != 0UL) {
+      Frame = other.Frame;
     }
     if (other.BehaviorIdx != 0) {
       BehaviorIdx = other.BehaviorIdx;
@@ -251,10 +286,14 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
           break;
         }
         case 16: {
+          Frame = input.ReadUInt64();
+          break;
+        }
+        case 24: {
           BehaviorIdx = input.ReadInt32();
           break;
         }
-        case 26: {
+        case 34: {
           Params = input.ReadBytes();
           break;
         }
@@ -277,13 +316,434 @@ public sealed partial class FrameRpc : pb::IMessage<FrameRpc>
           break;
         }
         case 16: {
+          Frame = input.ReadUInt64();
+          break;
+        }
+        case 24: {
           BehaviorIdx = input.ReadInt32();
           break;
         }
-        case 26: {
+        case 34: {
           Params = input.ReadBytes();
           break;
         }
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+/// 帧同步消息 客户端通知服务器已准备好
+/// </summary>
+public sealed partial class FrameClientReady : pb::IMessage<FrameClientReady>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<FrameClientReady> _parser = new pb::MessageParser<FrameClientReady>(() => new FrameClientReady());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<FrameClientReady> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::FrameSyncReflection.Descriptor.MessageTypes[1]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameClientReady() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameClientReady(FrameClientReady other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameClientReady Clone() {
+    return new FrameClientReady(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as FrameClientReady);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(FrameClientReady other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(FrameClientReady other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+/// 帧同步消息 通知客户端开始游戏
+/// </summary>
+public sealed partial class FrameGameStart : pb::IMessage<FrameGameStart>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<FrameGameStart> _parser = new pb::MessageParser<FrameGameStart>(() => new FrameGameStart());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<FrameGameStart> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::FrameSyncReflection.Descriptor.MessageTypes[2]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameStart() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameStart(FrameGameStart other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameStart Clone() {
+    return new FrameGameStart(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as FrameGameStart);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(FrameGameStart other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(FrameGameStart other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+/// 帧同步消息 通知客户端游戏结束
+/// </summary>
+public sealed partial class FrameGameEnd : pb::IMessage<FrameGameEnd>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<FrameGameEnd> _parser = new pb::MessageParser<FrameGameEnd>(() => new FrameGameEnd());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<FrameGameEnd> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::FrameSyncReflection.Descriptor.MessageTypes[3]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameEnd() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameEnd(FrameGameEnd other) : this() {
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public FrameGameEnd Clone() {
+    return new FrameGameEnd(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as FrameGameEnd);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(FrameGameEnd other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(FrameGameEnd other) {
+    if (other == null) {
+      return;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
       }
     }
   }

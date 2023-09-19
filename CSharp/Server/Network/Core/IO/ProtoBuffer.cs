@@ -44,7 +44,7 @@ namespace Nico
         /// </summary>
         /// <param name="proto"></param>
         /// <typeparam name="T"></typeparam>
-        public void Pack<T>(IMessage<T> proto) where T : IMessage<T>
+        public void WriteProto<T>(IMessage<T> proto) where T : IMessage<T>
         {
             int size = proto.CalculateSize();
             EnsureCapacity(Position + size);

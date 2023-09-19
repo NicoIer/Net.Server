@@ -10,11 +10,14 @@ namespace Client
     {
         static async Task Main()
         {
-            await FrameTest();
+            var t1 = FrameTest(1);
+            var t2 = FrameTest(2);
+
+            await Task.WhenAll(t1, t2);
         }
 
 
-        static async Task FrameTest()
+        static async Task FrameTest(int id)
         {
             KcpConfig config = KcpUtil.GetDefaultConfig();
             config.DualMode = false;
@@ -23,20 +26,24 @@ namespace Client
             client.OnConnected += () => { Console.WriteLine($"Client: OnConnected :{client.connected}"); };
             client.OnError += (error, msg) => { Console.WriteLine($"Client: OnError:{msg}"); };
             client.Start();
-            
-            
-            FrameSyncBehavior behavior = client.Create<FrameSyncBehavior>();
 
+
+            TestFrameSyncBehavior behavior = client.Create<TestFrameSyncBehavior>();
+            behavior.id = id;
+            byte frame = byte.MinValue;
             while (true)
             {
                 await Task.Delay(TimeSpan.FromMilliseconds(330));
                 if (client.connected)
                 {
-                    using (ProtoBuffer buffer = ProtoBuffer.Get())
+                    if (frame == byte.MaxValue)
                     {
-                        buffer.WriteBlittable<int>(24419);
-                        behavior.CallFrameRpc(0, buffer);
+                        frame = byte.MinValue;
                     }
+
+                    frame += 1;
+                    Console.WriteLine($"call byte Rpc:{frame}");
+                    behavior.CallByteRpc(frame);
                 }
 
                 client.OnEarlyUpdate();

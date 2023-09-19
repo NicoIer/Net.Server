@@ -63,8 +63,8 @@ namespace Nico
 
         private void _OnDataReceived(ArraySegment<byte> data, int channelId)
         {
-            PacketHeader header = ProtoHandler.Get<PacketHeader>();
-            ProtoHandler.UnPack(ref header, data);
+            PacketHeader header = ProtobufHandler.Get<PacketHeader>();
+            ProtobufHandler.UnPack(ref header, data);
             if (!_handlers.ContainsKey(header.Id))
             {
                 throw new InvalidDataException($"unregistered message id:{header.Id}");
@@ -120,7 +120,7 @@ namespace Nico
             // 拿两个buffer 一个用来写头 一个用来写body
             using (ProtoBuffer buffer = ProtoBuffer.Get())
             {
-                ProtoHandler.Pack(buffer, msg);
+                buffer.PackHeader(msg);
                 _transport.Send(buffer, channelId);
             }
         }
@@ -138,8 +138,8 @@ namespace Nico
             {
                 _handlers[id] = (data, channel) =>
                 {
-                    T msg = ProtoHandler.Get<T>();
-                    ProtoHandler.UnPack(ref msg, data);
+                    T msg = ProtobufHandler.Get<T>();
+                    ProtobufHandler.UnPack(ref msg, data);
                     _eventCenter.Fire(new ServerPack<T>
                     {
                         msg = msg,

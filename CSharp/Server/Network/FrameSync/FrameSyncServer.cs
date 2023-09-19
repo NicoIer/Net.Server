@@ -7,12 +7,18 @@ namespace Nico
     {
         public FrameSyncServer(ServerTransport transport) : base(transport)
         {
+            RegisterHandler<FrameClientReady>(OnFrameClientReady);
             RegisterHandler<FrameRpc>(OnFrameRpc);
         }
 
         public void OnFrameRpc(ClientPack<FrameRpc> frameRpc)
         {
             SendToAll(frameRpc.msg);
+        }
+        
+        public void OnFrameClientReady(ClientPack<FrameClientReady> frameClientReady)
+        {
+            
         }
     }
 }
